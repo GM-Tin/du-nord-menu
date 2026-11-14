@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --ink: #19342c;
+  --muted: #74817a;
+  --green: #255c48;
+  --cream: #f7f4ec;
+  --white: #fff;
+  --line: #e8e8df;
+  --shadow: 0 18px 45px #23433312;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+}
+
+button, input, select { font: inherit; }
+
+.wrap { max-width: 1160px; margin: auto; padding: 0 28px; }
+
+.nav {
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e7e5dc;
+}
+
+.brand { display: flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: -0.4px; }
+.logo { width: 36px; height: 36px; border-radius: 12px; background: var(--green); color: white; display: grid; place-items: center; font-size: 18px; }
+.navtag { color: var(--muted); font-size: 13px; }
+
+.hero {
+  padding: 54px 0 34px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 34px;
+  align-items: center;
+}
+
+.eyebrow { color: #527b5c; font-size: 12px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; }
+.hero h1 { margin: 16px 0; font: 800 clamp(38px, 5vw, 62px) / 1.03 Manrope, sans-serif; letter-spacing: -3px; }
+.hero h1 em { color: #62834f; font-style: normal; }
+.hero p { max-width: 520px; color: #68786e; font-size: 17px; line-height: 1.65; }
+
+.hero-art { height: 226px; position: relative; display: grid; place-items: center; overflow: hidden; border-radius: 28px; background: #e8eddb; }
+.plate { width: 170px; height: 170px; display: grid; place-items: center; border-radius: 50%; background: var(--white); box-shadow: 0 12px 25px #15362618; font-size: 80px; transform: rotate(-8deg); }
+.leaf { position: absolute; font-size: 45px; }
+.l1 { top: 19%; left: 14%; transform: rotate(28deg); }
+.l2 { right: 12%; bottom: 16%; transform: rotate(-20deg); }
+.sticker { position: absolute; top: 19px; right: 18px; padding: 9px 13px; border-radius: 99px; background: var(--white); box-shadow: var(--shadow); font-size: 12px; font-weight: 700; }
+
+.panel { padding: 22px; border: 1px solid var(--line); border-radius: 22px; background: var(--white); box-shadow: var(--shadow); }
+.controls { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 20px; align-items: end; }
+.label { display: block; margin-bottom: 10px; color: #66766b; font-size: 12px; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase; }
+.budget-entry { position: relative; }
+.currency { position: absolute; top: 14px; left: 14px; color: #809087; font-size: 14px; }
+.budget-entry input, .select { width: 100%; height: 48px; padding: 0 14px; border: 1px solid #dce2d9; border-radius: 12px; background: var(--white); color: var(--ink); outline: none; }
+.budget-entry input { padding-left: 43px; font-size: 17px; font-weight: 700; }
+.budget-entry input:focus, .select:focus { border-color: #6a9876; box-shadow: 0 0 0 3px #6a98761c; }
+.chips { display: flex; gap: 7px; margin-top: 9px; }
+.chip { padding: 6px 10px; border: 1px solid #dce2d9; border-radius: 99px; background: var(--white); color: #506459; cursor: pointer; font-size: 12px; }
+.chip:hover, .chip.active { border-color: #aac19a; background: #edf4e6; color: #31593c; }
+.check-row { height: 48px; display: flex; align-items: center; gap: 10px; color: #4f6458; font-size: 14px; }
+.check-row input { width: 17px; height: 17px; accent-color: #386f4b; }
+
+.summary { display: flex; align-items: center; justify-content: space-between; padding: 25px 2px 15px; }
+.summary h2 { margin: 0; font: 700 22px Manrope, sans-serif; letter-spacing: -0.6px; }
+.count, .hint { color: var(--muted); font-size: 13px; }
+.hint { margin: 0 0 18px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding-bottom: 38px; }
+
+.card { min-height: 205px; display: flex; flex-direction: column; padding: 18px; border: 1px solid var(--line); border-radius: 18px; background: var(--white); transition: transform 0.18s, box-shadow 0.18s; }
+.card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.cardtop { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.restaurant { color: #65816b; font-size: 11px; font-weight: 800; letter-spacing: 0.7px; text-transform: uppercase; }
+.price { font: 800 19px Manrope, sans-serif; white-space: nowrap; }
+.item { margin: 11px 0 5px; font: 700 16px / 1.35 Manrope, sans-serif; }
+.category, .cardbottom { color: #859188; font-size: 12px; }
+.note { margin-top: 9px; color: #8a755f; font-size: 12px; line-height: 1.4; }
+.cardbottom { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 12px; border-top: 1px solid #eff0e9; font-size: 11px; }
+.time { display: flex; align-items: center; gap: 5px; }
+.tag { padding: 5px 8px; border-radius: 99px; background: #f1f5ec; color: #55704e; font-size: 10px; font-weight: 700; }
+.empty { grid-column: 1 / -1; padding: 38px; border-radius: 18px; background: var(--white); color: #6e7b72; text-align: center; }
+.footer { padding: 18px 0 34px; border-top: 1px solid var(--line); color: #879087; font-size: 12px; line-height: 1.6; }
+.footer strong { color: #526558; }
+.notice { display: inline-flex; align-items: center; gap: 7px; margin-top: 10px; padding: 8px 11px; border: 1px solid #f5dfc9; border-radius: 10px; background: #fff4e8; color: #805e43; font-size: 12px; }
+
+@media (max-width: 850px) {
+  .hero { grid-template-columns: 1fr 0.7fr; }
+  .controls { grid-template-columns: 1fr 1fr; }
+  .budgetbox { grid-row: span 2; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .wrap { padding: 0 17px; }
+  .nav { height: 65px; }
+  .navtag { font-size: 11px; }
+  .hero { grid-template-columns: 1fr; gap: 20px; padding: 35px 0 23px; }
+  .hero h1 { letter-spacing: -2px; }
+  .hero-art { height: 155px; }
+  .plate { width: 125px; height: 125px; font-size: 60px; }
+  .controls, .grid { grid-template-columns: 1fr; }
+  .budgetbox { grid-row: auto; }
+  .panel { padding: 17px; }
+  .summary h2 { font-size: 20px; }
+}
