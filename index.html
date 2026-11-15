@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f7f4ec">
     <meta name="description" content="Encuentra opciones del menú Du Nord según tu presupuesto.">
-    <title>Almuerzo a tu medida · Du Nord</title>
+    <title>Menú Du Nord · Almuerzos a tu medida</title>
     <link rel="stylesheet" href="styles.css">
     <script src="data/bocas-de-ceniza.js" defer></script>
     <script src="data/du-nord-terrasse.js" defer></script>
@@ -24,17 +24,29 @@
         <div class="navtag">Explora según tu presupuesto</div>
       </header>
 
+      <nav class="page-tabs" role="tablist" aria-label="Secciones del proyecto">
+        <button class="page-tab is-active" id="tab-menu" type="button" role="tab" aria-selected="true" aria-controls="menu-panel" tabindex="0">
+          <span aria-hidden="true">🍽️</span> Menú interactivo
+        </button>
+        <button class="page-tab" id="tab-project" type="button" role="tab" aria-selected="false" aria-controls="project-panel" tabindex="-1">
+          <span aria-hidden="true">🧠</span> Lógica y equipo
+        </button>
+      </nav>
+
+      <section class="tab-panel" id="menu-panel" role="tabpanel" aria-labelledby="tab-menu">
       <section class="hero">
         <div>
           <div class="eyebrow">Tu antojo, tu presupuesto</div>
           <h1>Un buen almuerzo<br><em>sí te alcanza.</em></h1>
           <p>Cuéntanos cuánto tienes y encuentra opciones del menú con sus precios. Compara restaurantes y descubre qué puedes pedir hoy.</p>
-          <div class="notice">ℹ️ Horarios no especificados en el menú fuente</div>
         </div>
         <div class="hero-art" aria-hidden="true">
           <span class="leaf l1">🌿</span>
           <div class="plate">🥗</div>
           <span class="leaf l2">🍅</span>
+          <span class="food-doodle d1">🥑</span>
+          <span class="food-doodle d2">🍋</span>
+          <span class="food-doodle d3">🥕</span>
           <span class="sticker">¡A comer rico!</span>
         </div>
       </section>
@@ -53,12 +65,14 @@
               <button class="chip" type="button" data-amount="20000">$20 mil</button>
             </div>
           </div>
+
           <div>
             <label class="label" for="place">Restaurante</label>
             <select class="select" id="place">
               <option value="">Todos los restaurantes</option>
             </select>
           </div>
+
           <div>
             <span class="label">Tipo de comida</span>
             <label class="check-row">
@@ -74,11 +88,66 @@
         <span class="count" id="count" aria-live="polite"></span>
       </div>
       <p class="hint" id="hint">Ordenadas de menor a mayor precio. Elige un plato dentro de tu presupuesto.</p>
+      <p class="result-reading" id="interpretation" aria-live="polite"></p>
       <main class="grid" id="results" aria-live="polite"></main>
 
       <footer class="footer">
-        <strong>Fuente y alcance.</strong> Precios y nombres tomados del archivo de menú proporcionado. El archivo no incluye horarios de apertura/cierre, disponibilidad en tiempo real ni una categoría universal de “almuerzo”; por eso los horarios se muestran como no informados y los platos se identifican usando las categorías y nombres originales. Algunos productos pueden agotarse.
+        <strong>Fuente del menú.</strong> Precios, nombres y categorías tomados del archivo proporcionado. La página conserva la clasificación original para que puedas explorar opciones según tu presupuesto. Algunos productos pueden agotarse.
       </footer>
+      </section>
+
+      <section class="tab-panel project-panel" id="project-panel" role="tabpanel" aria-labelledby="tab-project" hidden>
+        <section class="math-section" aria-labelledby="math-title">
+          <div class="math-heading">
+            <span class="math-kicker">Proyecto de matemáticas discretas</span>
+            <h2 id="math-title">La lógica detrás del proyecto</h2>
+            <p>Así convertimos el menú en un modelo que puede responder qué opciones caben en un presupuesto.</p>
+          </div>
+          <div class="math-grid">
+            <article class="math-card set-card">
+              <span class="math-symbol" aria-hidden="true">{ }</span>
+              <h3>3. Modelación con teoría</h3>
+              <p><strong>Conjuntos:</strong> <em>R</em> reúne los restaurantes y <em>M</em> los productos del menú.</p>
+              <p><strong>Relación:</strong> <em>D ⊆ R × M</em> conecta cada restaurante con sus productos y precios.</p>
+              <div class="formula">A<sub>b</sub> = { m ∈ M | precio(m) ≤ b }</div>
+              <small><em>A<sub>b</sub></em> es el conjunto de productos que caben en el presupuesto <em>b</em>.</small>
+            </article>
+            <article class="math-card algorithm-card">
+              <span class="math-symbol" aria-hidden="true">↗</span>
+              <h3>4. Algoritmo y datos</h3>
+              <ol>
+                <li>Lee los productos y precios del menú.</li>
+                <li>Aplica presupuesto, restaurante y tipo de comida como condiciones.</li>
+                <li>Ordena las coincidencias de menor a mayor precio.</li>
+              </ol>
+              <small>El filtro de almuerzos usa las categorías y nombres originales del archivo.</small>
+            </article>
+            <article class="math-card result-card">
+              <span class="math-symbol" aria-hidden="true">∑</span>
+              <h3>5. Resultados e interpretación</h3>
+              <p>El número de opciones representa el tamaño del conjunto filtrado: <em>|A<sub>b</sub>|</em>.</p>
+              <p>Al cambiar el presupuesto o los filtros, el conjunto se calcula de nuevo al instante.</p>
+              <div class="formula">Menú fuente: <strong>495 productos</strong></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="team-section" aria-labelledby="team-title">
+          <div class="team-heading">
+            <span class="math-kicker">Las personas detrás del menú</span>
+            <h2 id="team-title">Nuestro equipo</h2>
+            <span class="team-sparkle sparkle-one" aria-hidden="true">✦</span>
+            <span class="team-sparkle sparkle-two" aria-hidden="true">✿</span>
+          </div>
+          <div class="team-grid">
+            <article class="member-card"><span class="member-number">01</span><img class="member-photo" src="images/team/moises.jpg" alt="Fotografía de Moisés" loading="lazy"><p class="member-name">Moisés</p></article>
+            <article class="member-card"><span class="member-number">02</span><img class="member-photo" src="images/team/caceres.jpg" alt="Fotografía de Caceres" loading="lazy"><p class="member-name">Caceres</p></article>
+            <article class="member-card"><span class="member-number">03</span><img class="member-photo" src="images/team/julian.jpg" alt="Fotografía de Julián" loading="lazy"><p class="member-name">Julián</p></article>
+            <article class="member-card"><span class="member-number">04</span><img class="member-photo" src="images/team/isabella.jpg" alt="Fotografía de Isabella" loading="lazy"><p class="member-name">Isabella</p></article>
+            <article class="member-card"><span class="member-number">05</span><img class="member-photo" src="images/team/geremy.jpg" alt="Fotografía de Geremy" loading="lazy"><p class="member-name">Geremy</p></article>
+          </div>
+        </section>
+      </section>
     </div>
   </body>
 </html>
